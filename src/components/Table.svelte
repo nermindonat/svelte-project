@@ -1,15 +1,13 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
 
-  import UserAdd from "./UserAdd.svelte";
-
-  const clickHandle = () => {
-    
-  }
+  const addUserHandler = () => {
+    dispatch("toggleTable");
+  };
 </script>
 
-<UserAdd/>
-
-<div class="container">
+<div class="container2">
   <navbar class="navbar">
     <span class="icon"
       ><svg
@@ -29,8 +27,8 @@
   </navbar>
   <div class="table-wrapper">
     <header class="header">
-      <span class="header-text">Regions</span>
-      <button class="button" on:click={clickHandle}>Add +</button>
+      <span class="header-text">Users</span>
+      <button class="button" on:click={addUserHandler}>Add + </button>
     </header>
     <table class="content-table">
       <tr>
@@ -68,9 +66,8 @@
   </div>
 </div>
 
-
 <style>
-  .container {
+  .container2 {
     margin-left: 200px;
   }
   .navbar {
@@ -144,5 +141,4 @@
     margin-right: 10px;
     margin-left: 10px;
   }
-
 </style>

@@ -2,10 +2,19 @@
   // import PercentOutlined from "@mui/icons-material/PercentOutlined";
   // import FaRegUser from 'svelte-icons/fa/FaRegUser.svelte'
   // import MdMessage from 'svelte-icons/md/MdMessage.svelte'
+
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
+  
+  const closeSidebar = () => {
+    dispatch("toggleSidebar")
+  }
+
 </script>
 
-<div class="sidebar">
+<aside class="aside">
   <div class="sidebar-wrapper">
+    <button class="closebtn" on:click={closeSidebar}>X</button>
     <ul class="sidebar-list">
       <li class="sidebar-list-item">
         <svg
@@ -23,59 +32,90 @@
         <span class="sidebar-list-item-text">Users</span>
       </li>
       <li class="sidebar-list-item">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
-            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-          </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-chat-left-text"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+          />
+          <path
+            d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"
+          />
+        </svg>
         <span class="sidebar-list-item-text">Messages</span>
       </li>
       <li class="sidebar-list-item">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
-            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-          </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-file-earmark"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"
+          />
+        </svg>
         <span class="sidebar-list-item-text">Files</span>
       </li>
     </ul>
   </div>
-</div>
+</aside>
+
 
 <style>
-  .sidebar {
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    z-index: 1;
+  .aside {
     top: 0;
     left: 0;
+    width: 200px;
+    height: 100%;
+    box-sizing: border-box;
+    position: static;
+    z-index: 1;
     background-color: #4723d9;
   }
 
   .sidebar-wrapper {
-    padding: 20px;
+    padding-left: 10px;
   }
 
   .sidebar-list {
     padding: 0;
-    
+    margin-top: 10px;
     list-style: none;
   }
 
   .sidebar-list-item {
-    display: flex;   /* df yazarak kısaca yazılabilir.*/
+    display: flex; /* df yazarak kısaca yazılabilir.*/
     align-items: center;
     margin-bottom: 20px;
     color: white;
     cursor: pointer;
-    
   }
 
-  .sidebar-list-item-text{
-      margin-left: 15px;
-      
+  .sidebar-list-item-text {
+    margin-left: 15px;
   }
 
-
-  .sidebar .sidebar-list-item:hover {
+  .aside .sidebar-list-item:hover {
     color: black;
   }
+
+  .closebtn {
+    font-size: 20px;
+    margin-left: 150px;
+    margin-top: 8px;
+    color: white;
+    border: none;
+    background-color: inherit;
+    font-weight: 500;
+}
+
+ 
 </style>

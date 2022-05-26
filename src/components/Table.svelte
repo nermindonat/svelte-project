@@ -2,27 +2,21 @@
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
 
+  
   const addUserHandler = () => {
     dispatch("toggleTable");
   };
+
+  const showSidebar = () => {
+    dispatch("toggleSidebar")
+  }
+
+  
 </script>
 
-<div class="container2">
+<div class="row1">
   <navbar class="navbar">
-    <span class="icon"
-      ><svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-x-lg"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
-        />
-      </svg></span
-    >
+    <button class="openbtn" on:click={showSidebar}>☰</button>
     <span class="text">Admin Panel</span>
   </navbar>
   <div class="table-wrapper">
@@ -67,8 +61,9 @@
 </div>
 
 <style>
-  .container2 {
-    margin-left: 200px;
+  .row1 {
+    width: 100%;
+    
   }
   .navbar {
     width: 100%;
@@ -76,13 +71,8 @@
     justify-content: space-between;
     align-items: center;
     background-color: #f7f6fb;
-    height: 40px;
   }
 
-  .navbar span {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
 
   .text {
     font-size: 15px;
@@ -122,8 +112,7 @@
   .content-table {
     margin-top: 10px;
     width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
+
   }
 
   th,
@@ -141,4 +130,18 @@
     margin-right: 10px;
     margin-left: 10px;
   }
+
+  .openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #f7f6fb;
+  color: black;
+  font-weight: bold;
+  border: none;
+}
+
+.openbtn:hover {
+  color: rgb(48, 37, 37);
+}
+
 </style>

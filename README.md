@@ -1,3 +1,19 @@
+This is my first project developed with svelte.js. When you click on the X or hamburger icon on the side, the sidebar opens and closes. Users are also directed to the user adding page by clicking the Add button in their table.
+
+![image](https://github.com/nermindonat/svelte-project/assets/70170606/a708c8ca-e143-4749-abb4-f5affcef6d64)
+
+![image](https://github.com/nermindonat/svelte-project/assets/70170606/a2f8aab0-1b99-437b-9b1d-a0a3dcabfefa)
+
+
+
+
+
+
+
+
+
+
+
 *Psst — looking for a more complete solution? Check out [SvelteKit](https://kit.svelte.dev), the official framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.*
 
 *Looking for a shareable component template instead? You can [use SvelteKit for that as well](https://kit.svelte.dev/docs#packaging) or the older [sveltejs/component-template](https://github.com/sveltejs/component-template)*
